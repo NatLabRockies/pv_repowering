@@ -1,4 +1,4 @@
-2/18/26
+2026/02/18
 
 I hereby agree to the terms of the Contributors License
 Agreement, version 1.0, with MD5 checksum
@@ -10,4 +10,5 @@ agreement and sign this declaration.
 Signed,
 
 Dylan Hess
+
 https://github.com/dy1an17
