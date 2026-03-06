@@ -1,19 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>PV Repowering Calculators</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PV Repowering Tools</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #0d1329 0%,
+        #1b2140 60%,
+        #1f2a55 100%
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.container{
+    text-align:center;
+}
+
+.logos{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:90px;
+    margin-bottom:40px;
+}
+
+.logos img{
+    height:120px;
+    width:auto;
+    opacity:0.95;
+}
+
+h1{
+    color:#f0f0f0;
+    margin-bottom:45px;
+}
+
+.apps{
+    display:flex;
+    gap:60px;
+    justify-content:center;
+}
+
+.app{
+    text-decoration:none;
+    color:white;
+}
+
+.card{
+    background:#1f2335;
+    padding:30px;
+    border-radius:18px;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+
+.card img{
+    width:160px;
+    height:160px;
+}
+
+.label{
+    margin-top:12px;
+    font-weight:600;
+    color:#e0e0e0;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>PV Repowering Calculators</h1>
+<div class="container">
 
-<p>Select a calculator:</p>
+<div class="logos">
+<img src="./images/nrel.png" alt="NREL Logo">
+<img src="./images/unm-ece.png" alt="UNM ECE Logo">
+</div>
 
-<ul>
-  <li><a href="./cost/">PV Cost Model</a></li>
-  <li><a href="./warranty/">PV Warranty Model</a></li>
-</ul>
+<h1>PV Repowering Tools</h1>
+
+<div class="apps">
+
+<a class="app" href="./cost/">
+<div class="card">
+<img src="./icons/cost.svg">
+</div>
+<div class="label">Cost Model</div>
+</a>
+
+<a class="app" href="./warranty/">
+<div class="card">
+<img src="./icons/warranty.svg">
+</div>
+<div class="label">Warranty Model</div>
+</a>
+
+</div>
+
+</div>
 
 </body>
 </html>
