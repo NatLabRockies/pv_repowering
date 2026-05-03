@@ -100,50 +100,27 @@ h1{
     color:#e0e0e0;
 }
 
-/* Authors */
-.authors{
-    margin-top:40px;
-}
-
-.author-grid{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
-
-.author{
-    background:#1f2335;
-    padding:20px;
-    border-radius:14px;
-    width:180px;
-}
-
-.author .photo{
-    height:100px;
-    background:#2d3355;
-    border-radius:10px;
-    margin-bottom:10px;
-}
-
-.author .name{
-    font-weight:600;
-}
-
-/* Footer Links */
+/* Footer */
 .footer{
-    margin-top:40px;
+    margin-top:50px;
 }
 
-.footer a{
-    color:#9ecbff;
+/* Bigger About Button */
+.about-btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#2d6cdf;
+    color:white;
+    font-weight:600;
+    border-radius:10px;
     text-decoration:none;
-    margin:0 10px;
+    transition:all .15s ease;
 }
 
-.footer a:hover{
-    text-decoration:underline;
+.about-btn:hover{
+    background:#3a7bff;
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,.3);
 }
 
 </style>
@@ -154,10 +131,12 @@ h1{
 
 <div class="container">
 
+<!-- LOGO -->
 <div class="logos">
 <img src="./images/unm-ece.png" alt="UNM ECE Logo">
 </div>
 
+<!-- TITLE -->
 <h1>PV Repowering Tools</h1>
 
 <!-- HOW TO USE -->
@@ -175,43 +154,23 @@ while the Warranty Model helps assess system reliability and replacement timing.
 
 <a class="app" href="./cost/">
 <div class="card">
-<img src="./icons/cost.svg">
+<img src="./icons/cost.svg" alt="Cost Model">
 </div>
 <div class="label">Cost Model</div>
 </a>
 
 <a class="app" href="./warranty/">
 <div class="card">
-<img src="./icons/warranty.svg">
+<img src="./icons/warranty.svg" alt="Warranty Model">
 </div>
 <div class="label">Warranty Model</div>
 </a>
 
 </div>
 
-<!-- AUTHORS -->
-<div class="authors">
-<h2>Authors</h2>
-
-<div class="author-grid">
-
-<div class="author">
-<div class="photo"></div>
-<div class="name">Benjamin Webster</div>
-</div>
-
-<div class="author">
-<div class="photo"></div>
-<div class="name">Temp</div>
-</div>
-
-
-</div>
-</div>
-
-<!-- FOOTER -->
+<!-- ABOUT BUTTON -->
 <div class="footer">
-<a href="./about.html">About</a>
+<a class="about-btn" href="./about.html">About & Authors</a>
 </div>
 
 </div>
