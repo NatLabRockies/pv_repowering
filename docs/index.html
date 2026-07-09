@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PV Repowering Tools</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #0d1329 0%,
+        #1b2140 60%,
+        #1f2a55 100%
+    );
+
+    color:white;
+}
+
+/* Layout */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+    text-align:center;
+}
+
+/* Logo */
+.logos{
+    margin-bottom:20px;
+}
+.logos img{
+    height:90px;
+}
+
+/* Title */
+h1{
+    margin:10px 0 30px;
+    font-size:2.2rem;
+}
+
+/* How to Use */
+.howto{
+    background:#1f2335;
+    padding:20px;
+    border-radius:14px;
+    margin-bottom:40px;
+    text-align:left;
+}
+
+.howto h2{
+    margin-top:0;
+}
+
+.howto p{
+    color:#d0d0d0;
+    line-height:1.5;
+}
+
+/* App Cards */
+.apps{
+    display:flex;
+    gap:50px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:50px;
+}
+
+.app{
+    text-decoration:none;
+    color:white;
+}
+
+.card{
+    background:#1f2335;
+    padding:25px;
+    border-radius:18px;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+.card img{
+    width:140px;
+    height:140px;
+}
+
+.label{
+    margin-top:10px;
+    font-weight:600;
+    color:#e0e0e0;
+}
+
+/* Footer */
+.footer{
+    margin-top:50px;
+}
+
+/* Bigger About Button */
+.about-btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#2d6cdf;
+    color:white;
+    font-weight:600;
+    border-radius:10px;
+    text-decoration:none;
+    transition:all .15s ease;
+}
+
+.about-btn:hover{
+    background:#3a7bff;
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,.3);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LOGO -->
+<div class="logos">
+<img src="./images/unm-ece.png" alt="UNM ECE Logo">
+</div>
+
+<!-- TITLE -->
+<h1>PV Repowering Tools</h1>
+
+<!-- HOW TO USE -->
+<div class="howto">
+<h2>How to Use</h2>
+<p>
+Select one of the tools below to begin. Each model allows you to input system parameters
+and evaluate different repowering scenarios. The Cost Model focuses on financial tradeoffs,
+while the Warranty Model helps assess system reliability and replacement timing.
+</p>
+</div>
+
+<!-- APPS -->
+<div class="apps">
+
+<a class="app" href="./cost/">
+<div class="card">
+<img src="./icons/cost.svg" alt="Cost Model">
+</div>
+<div class="label">Cost Model</div>
+</a>
+
+<a class="app" href="./warranty/">
+<div class="card">
+<img src="./icons/warranty.svg" alt="Warranty Model">
+</div>
+<div class="label">Warranty Model</div>
+</a>
+
+</div>
+
+<!-- ABOUT BUTTON -->
+<div class="footer">
+<a class="about-btn" href="./about.html">About & Authors</a>
+</div>
+
+</div>
+
+</body>
+</html>
