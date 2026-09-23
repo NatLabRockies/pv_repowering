@@ -1,0 +1,72 @@
+degradation_post_repower = 0.5; //%, 0-100
+repowering_cost_per_watt = 1.13; // $/W - year 1 dollars
+year_of_repower = 12;
+planned_repower = false; // false - O&M cost. true - reserve account
+use_reserve_account = "1"; // Must be text. 1 overrides inverter replacements
+
+simulate();
+name = case_name();
+
+// Get outputs from old case
+ppa_price = get("ppa_price") / 100.0;
+debt_fraction = get("debt_fraction");
+
+duplicate_case();
+new_case = name + " (1)";
+active_case(new_case);
+
+// Lock down financial inputs so repowering doesn't change PPA price
+set("ppa_price_input", [ppa_price]); // Doesn't handle multi year PPA price series
+set("ppa_soln_mode", 1);
+set("debt_percent", debt_fraction);
+set("debt_option", 0);
+
+// Get additional inputs out of the case
+dc_capacity = get("system_capacity");
+degradation = get("dc_degradation");
+om = get("om_fixed");
+analysis_period = get("analysis_period");
+inflation_rate = get("inflation_rate") / 100.0;
+
+repower_idx = year_of_repower - 1;
+
+old_degradation = [];
+if (#degradation == 1 ) {
+	for (i = 0; i < analysis_period; i++) {
+		old_degradation[i] = degradation[0] * i;
+	}
+}
+else {
+	old_degradation = degradation;
+}
+
+repowering_degradation = old_degradation;
+for (i = repower_idx; i < analysis_period; i++) {
+	// Apply linear degradation with 0 in the year of repowering
+	repowering_degradation[i] = degradation_post_repower * (i - repower_idx);
+}
+
+set("dc_degradation", repowering_degradation);
+
+if (planned_repower) {
+	// Default behavior is to overwrite reserve account 1
+	set("equip" + use_reserve_account + "_reserve_cost", repowering_cost_per_watt);
+	set("equip" + use_reserve_account +"_reserve_freq", year_of_repower);	
+}
+else {
+	old_om = [];
+	if (#om == 1 ) {
+		for (i = 0; i < analysis_period; i++) {
+			old_om[i] = om[0] * (1 + inflation_rate)^i;
+		}
+	}
+	else {
+		old_om = om;
+	}
+	
+	repowering_cost = repowering_cost_per_watt * dc_capacity * 1000 * (1 + inflation_rate)^repower_idx;
+	repowering_om = old_om;
+	repowering_om[repower_idx] = old_om[repower_idx] + repowering_cost;
+	
+	set("om_fixed", repowering_om);
+}
